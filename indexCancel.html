@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>预约系统</title>
+    <link href="assets/theme/css/base.css" rel="stylesheet">
+	<script src="assets/theme/js/base.js"></script>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link href="assets/theme/css/base.css" rel="stylesheet">
+	<script src="assets/theme/js/base.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/hit.jpg" style="width: 100px;height: 100px;">
+        </div>
+        <div class="title">
+            <t>哈尔滨工业大学(威海）校园预约</t>
+        </div>
+        <div id="time">
+
+        </div>
+        <div class="person">
+            <label>登录人</label>
+
+        </div>
+    </header>
+    <div class="banner">
+
+        <div class="subnav">
+            <ul>
+                <li><a href="./index2.html">教师查询 <span> > </span></a></li>
+                <li><a href="./indexDate.html">日期查询<span> > </span></a></li>
+                <li><a href="./indexCourse.html">课程查询 <span> > </span></a></li>
+                <li><a href="./indexCancel.html">取消预约 <span> > </span></a></li>
+                <li><a href="./indexHistory.html">预约记录 <span> > </span></a></li>
+                <li><a href="./indexCancelHis.html">违约记录 <span> > </span></a></li>
+                <li><a href="./login.html">退出 <span> > </span></a></li>
+            </ul>
+        </div>
+        <div class="subtitle">
+            <lable>我的预约</lable>
+        </div>
+        <div class="TSelect">
+            <div class="result">
+                <div id="rside">
+                    <table>
+                        <tr>
+                            <td>姓名</td>
+                            <td>课程</td>
+                            <td>时间</td>
+                            <td>预约</td>
+                        </tr>
+                        <tr>
+                            <td>张三</td>
+                            <td>计算机</td>
+                            <td><span class="badge">10:00</span></td>
+                            <td>已预约课程</td>
+                            <td><a href="#">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>李四</td>
+                            <td>软件</td>
+                            <td><span class="badge">14:00</span></td>
+                            <td>已预约课程</td>
+                            <td><a href="#">删除</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        eee
+    </div>
+    <script>
+        function CurentTime() {
+            var now = new Date();
+
+            var year = now.getFullYear();       //年
+            var month = now.getMonth() + 1;     //月
+            var day = now.getDate();            //日
+
+            var hh = now.getHours();            //时
+            var mm = now.getMinutes();          //分
+            var ss = now.getSeconds();           //秒
+
+            var clock = year + "-";
+
+            if (month < 10)
+                clock += "0";
+
+            clock += month + "-";
+
+            if (day < 10)
+                clock += "0";
+
+            clock += day + " ";
+
+            if (hh < 10)
+                clock += "0";
+
+            clock += hh + ":";
+            if (mm < 10) clock += '0';
+            clock += mm + ":";
+
+            if (ss < 10) clock += '0';
+            clock += ss;
+            document.getElementById('time').innerHTML = clock;
+            
+        }
+
+        window.setInterval("CurentTime()", 1000);
+
+    </script>
+</body>
+
+</html>

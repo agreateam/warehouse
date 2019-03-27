@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/register.css">
+    <link rel="shoutcut icon" href="favicon.ico" />
+</head>
+<body>
+        <header>
+                <div class="logo" id="logo" style="margin-top:10%">
+                    <h3>哈尔滨工业大学（威海）校园预约系统</h3>
+        
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4 offset-4" style="margin-top: 10%">
+                            <input type="radio" name="choice" value="student" checked style="margin-left:50px">学生<input type="radio"
+                                name="choice" value="teacher" style="margin-left:150px;margin-top: 10px">教师
+                            <input type="text" id="name" class="form-control" placeholder="name">
+                            <input type="password" id="password" class="form-control" placeholder="please input your password">
+                            <input type="password" id="password" class="form-control" placeholder="please check out your password">
+                            <br>
+                            <input type="button" id="注册" class="btn btn-primary form-control" value="注册">
+                            <small style="margin-left:240px">已有账号？<a href="./login.html">去登录</a></small>
+                        </div>
+                    </div>
+        
+                </div>
+            </header>
+            <script>
+                $(document).ready(function () {
+                    $('#注册').click(function () {
+                        location.href = './login.html';
+                    });
+        
+                })
+            </script>
+</body>
+</html>

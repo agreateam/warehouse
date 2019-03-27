@@ -1,0 +1,123 @@
+/* body{
+    background-color: aliceblue
+} */
+header {
+	width:100%;
+	height: 150px;
+	 /* background-color: pink;  */
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.logo img{
+    /* text-align:left */
+    float: left;
+    display: block;
+}
+.title{
+	float: left;
+	height: 40px;
+	margin-top: 20px;
+	line-height: 40px;
+	margin-left: 25px;
+	font-family: "华文行楷";
+	/* font-family:Arial,Verdana,Sans-serif; */
+	font-size: 50px;
+	font-weight: 300px;
+}
+#time{
+	float: left;
+	margin-left: 120px;
+	margin-top: 25px;
+	font-size: 15px;
+}
+.person{
+    margin-top: 20px;
+    margin-right: 100px;
+    float: right;
+}
+.banner {
+    height: 420px;
+    position: relative;
+}
+.subnav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 190px;
+	background: rgba(0, 0, 0, .3);
+	padding-top: 20px;
+	background-color:#CC9999;
+}
+
+.subnav li {
+	padding-left:20px;
+	/* position: relative; */
+	height: 40px;
+	line-height: 40px;
+}
+.subnav a {
+	font-size: 20px;
+	color: #fff;
+	display: block;
+	font-family: "楷体";
+	margin-bottom: 10px;
+}
+.subnav a:hover {
+	color:#333333;
+}
+.subtitle{
+    height: 100px;
+	width: 100%;
+	margin-left: 200px;
+}
+.subtitle lable{
+    float: left;
+	margin-top: 20px;
+    font-family: "楷体";
+    font-size: 40px;
+}
+.SearchText{
+	height: 100px;
+	width: 100%;
+	margin-left: 200px;
+	background-color: #fff;
+}
+.search {
+	width: 410px;
+	height: 40px;
+	background-color: purple;
+	float: left;
+	margin-top: 20px;
+	margin-left: 50px;
+}
+.search input{
+	width: 361px;
+	height: 40px;
+	border: 1px solid #00a4ff;
+	outline: none;  /* 轮廓线 */
+	padding-left: 10px;
+	float: left;
+}
+.search button {
+	width: 49px;
+	height: 40px;
+	border: 0;
+	outline: none;
+	float: left;
+	background: url(../image/fa-search.png) no-repeat;
+}
+
+.result{
+	/* background-color: purple; */
+	/* width: 100px; */
+	margin-left: 190px;
+	height: 420px;
+	/* left: 0;
+	top: 0;
+	position: absolute; */
+}
+#rside{
+	margin-left: 90px;
+	margin-top: 30px;
+}
