@@ -65,7 +65,9 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
+                                <!-- 日期选择后里面带有数字的文本框 -->
+                                <input type="text" id="choosedate" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
+                                <!-- 这是实现日期选择的按钮 -->
                                 <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
@@ -85,12 +87,14 @@
         <div class="TSelect">
             <div class="result">
                 <div id="rside">
+                    <!-- 搜索结果表格 -->
                     <table>
                         <tr>
                             <td>姓名</td>
                             <td>课程</td>
                             <td>时间</td>
                             <td>预约</td>
+							<td>修改</td>
                         </tr>
                         <tr>
                             <td>张三</td>
@@ -114,7 +118,6 @@
         </div>
     </div>
     <div>
-        eee
     </div>
     <script>
        
