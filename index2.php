@@ -1,4 +1,7 @@
-
+<?php
+     session_start();
+	 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,26 +13,46 @@
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://getbootstrap.com/assets/css/docs.min.css" />
 	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="assets/theme/css/base.css" rel="stylesheet">
-	<link href="css/highlight.min.css" rel="stylesheet">
+	<link href="css/highlight.min.css" rel="stylesheet"> 
 	<link href="assets/theme/css/tempusdominus-bootstrap-4.css" rel="stylesheet">
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/popper.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/moment-with-locales.min.js"></script>
-	<script type="text/javascript" src="js/moment-timezone-with-data-2012-2022.min.js"></script>
+    <script type="text/javascript" src="js/moment-timezone-with-data-2012-2022.min.js"></script>
+    <!-- <link href="assets/theme/css/base.css" rel="stylesheet"> -->
 	<script src="assets/theme/js/base.js"></script>
-	<script src="js/highlight.min.js"></script>
-	<script src="assets/theme/js/tempusdominus-bootstrap-4.js"></script>
+	<script src="js/highlight.min.js"></script> 
+    <script src="assets/theme/js/tempusdominus-bootstrap-4.js"></script>
     
-    <!-- <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/bootstrap.min.css"> -->
-    <!-- <script src="js/bootstrap.min.js"></script>
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/index.css">
 </head>
 
 <body>
+<?php
+   if(empty($_SESSION["uid"]))//如果从登录页获取用户id失败
+   {
+?>     
+       <script>
+       alert("未获得登陆人信息");
+       //window.location.href="login.php";
+       </script>
+<?php    
+       exit;
+   }
+   //id获取成功
+   $uid=$_SESSION["uid"];//从登录页传送过来的学生id变量！！！！！
+   $un=$_SESSION["un"];
+   //include("mysql_connect.php");
+  // $sn=$dbh->Query("select s_name from s_info where s_id='{$uid}'");
+   //$row=$sn->fetch(PDO::FETCH_BOTH);
+   //$sname=$row[0];
+   //echo "欢迎登陆：{$sname}";
+   
+?>
     <header>
         <div class="logo">
             <img src="image/hit.jpg" style="width: 100px;height: 100px;">
@@ -41,86 +64,70 @@
 
         </div>
         <div class="person">
-            <label>登录人</label>
+        <label>欢迎</label>
+            <!--登陆人显示有问题-->
+        <div id="na">
+                <script>
+               
+                var sname="<?php echo $un ?>";
+                document.getElementById("na").innerHTML =sname;
+                </script>
+        </div>
 
         </div>
     </header>
     <div class="banner">
-
+        <!-- 左边功能表格 -->
         <div class="subnav">
             <ul>
-                <li><a href="./index2.html">教师查询 <span> > </span></a></li>
+                <li><a href="./index2.php">教师查询 <span> > </span></a></li>
                 <li><a href="./indexDate.html">日期查询<span> > </span></a></li>
                 <li><a href="./indexCourse.html">课程查询 <span> > </span></a></li>
-                <li><a href="./indexHistory.html">预约记录 <span> > </span></a></li>
+                <li><a href="./indexCancel.html">预约记录 <span> > </span></a></li>
                 <li><a href="./indexCancelHis.html">违约记录 <span> > </span></a></li>
-                <li><a href="./fix.html">修改密码<span> > </span></a></li>
-                <li><a href="./login.html">退出 <span> > </span></a></li>
+				<li><a href="./fix.php">修改密码<span> > </span></a></li>
+                <li><a href="./login.php">退出 <span> > </span></a></li>
             </ul>
         </div>
         <div class="SearchText">
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                <!-- 日期选择后里面带有数字的文本框 -->
-                                <input method="post" action="test.php" type="text" id="choosedate" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
-                                <!-- 这是实现日期选择的按钮 -->
-                                <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker4').datetimepicker({
-                                format: 'L'
-                            });
-                        });
-                    </script>
-                </div>
+            <div class="search">
+			<form method="post" action="search.php"> 
+                <!-- 教师姓名搜索框 -->
+                <input type="text"  name="inputname" placeholder="请输入教师姓名"><button ></button>
+			</form>
             </div>
         </div>
         <div class="TSelect">
+            <!-- 搜索结果表格 -->
             <div class="result">
                 <div id="rside">
-                    <!-- 搜索结果表格 -->
                     <table>
+                        <!-- 第一行 -->
                         <tr>
                             <td>姓名</td>
                             <td>课程</td>
+							<td>日期</td>
                             <td>时间</td>
                             <td>预约</td>
                         </tr>
-                        <tr>
-                            <td>张三</td>
-                            <td>计算机</td>
-                            <td><span class="badge">10:00</span></td>
-                        
-                            <td><a href="#">删除</a></td>
-                            <td><a href="#">编辑</a></td>
+                        <!-- 第二行 -->
+                        <tr><?php foreach($data as $d){?>
+                            <td><?php echo $d['t_name'];?></td>
+                            <td><span class="badge"><?php echo $d['t_sdept'];?></span>
+							</td>
+                            <td><span class="badge"><?php echo $d['t_date'];?></span>
+							</td>
+							<td><span class="badge"><?php echo $d['t_time'];?></span>
+							</td>
+                            <td><a href="reservation.php?t_name=<?php echo $d['t_name']?>&t_sdept=<?php echo $d['t_sdept']?>&t_date=<?php echo $d['t_date']?>&t_time=<?php echo $d['t_time'];?>">预约</a></td>
                         </tr>
-                        <tr>
-                            <td>李四</td>
-                            <td>软件</td>
-                            <td><span class="badge">14:00</span></td>
-                            
-                            <td><a href="#">删除</a></td>
-                            <td><a href="#">编辑</a></td>
-                        </tr>
+					<?php }?>	
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <div>
-        eee
-    </div>
     <script>
-       
         function CurentTime() {
             var now = new Date();
 
@@ -161,5 +168,4 @@
 
     </script>
 </body>
-
 </html>
